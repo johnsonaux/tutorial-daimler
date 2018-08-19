@@ -62,16 +62,40 @@ public class CarController {
         carRepository.deleteById(carId);
     }
 
-      /*
+      /*-----------
+      CREATE CAR WITHOUT FACTORY_ID AND SET FACTORY_ID VIA UPDATE METHOD
+      ----------------------- */
+
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public void addCar(@RequestBody AddCarRequest addCarRequest) {
         Car car = new Car();
         car.setType(addCarRequest.getType());
         car.setVehicleClass(addCarRequest.getVehicleClass());
         car.setVehicleModel(addCarRequest.getVehicleModel());
-        carService.addCar(car);
+        carRepository.save(car);
     }
-    */
+
+    @RequestMapping(value = "/{carId}/setFactory/{factoryId}", method = RequestMethod.PUT)
+    public void updateCar(@PathVariable (value = "carId") Long carId,
+                          @PathVariable (value = "factoryId") Long factoryId){
+        List<Car> allCars =  carRepository.findAll();
+        Car selectedCar = new Car();
+        for (Car car: allCars){
+            if (car.getId().equals(carId)){
+                selectedCar = car;
+            }
+        }
+        final Car carToStore = selectedCar;
+        if (!selectedCar.equals(null)){
+            factoryRepository.findById(factoryId)
+                    .map(factory -> {
+                        carToStore.setFactory(factory);
+                        return carRepository.save(carToStore);
+                    });
+        }
+
+    }
+
 
 
 }
