@@ -1,5 +1,7 @@
 package com.exxeta.maau.tutorialmaau.model;
 
+import com.exxeta.maau.tutorialmaau.model.enumeration.CarTypes;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +16,7 @@ public class Factory {
     private Long id;
 
 
-    private String acceptedType;
+    private CarTypes acceptedType;
 
 
     private String location;
@@ -28,11 +30,11 @@ public class Factory {
         this.id = id;
     }
 
-    public String getAcceptedType() {
+    public CarTypes getAcceptedType() {
         return acceptedType;
     }
 
-    public void setAcceptedType(String acceptedType) {
+    public void setAcceptedType(CarTypes acceptedType) {
         this.acceptedType = acceptedType;
     }
 

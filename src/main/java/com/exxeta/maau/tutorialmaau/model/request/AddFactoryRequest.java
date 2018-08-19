@@ -1,17 +1,19 @@
 package com.exxeta.maau.tutorialmaau.model.request;
 
+import com.exxeta.maau.tutorialmaau.model.enumeration.CarTypes;
+
 public class AddFactoryRequest {
 
 
-    private String acceptedType;
+    private CarTypes acceptedType;
     private String location;
 
 
-    public String getAcceptedType() {
+    public CarTypes getAcceptedType() {
         return acceptedType;
     }
 
-    public void setAcceptedType(String acceptedType) {
+    public void setAcceptedType(CarTypes acceptedType) {
         this.acceptedType = acceptedType;
     }
 

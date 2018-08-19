@@ -1,16 +1,18 @@
 package com.exxeta.maau.tutorialmaau.model.request;
 
+import com.exxeta.maau.tutorialmaau.model.enumeration.CarTypes;
+
 public class AddCarRequest {
 
-    private String type; //dropdown menu with 3 accepted types, when car is created
+    private CarTypes type;
     private String vehicleClass;
     private String vehicleModel;
 
-    public String getType() {
+    public CarTypes getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(CarTypes type) {
         this.type = type;
     }
 

@@ -1,5 +1,6 @@
 package com.exxeta.maau.tutorialmaau.model;
 
+import com.exxeta.maau.tutorialmaau.model.enumeration.CarTypes;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -12,7 +13,7 @@ public class Car {
     @GeneratedValue
     private Long id;
 
-    private String type;
+    private CarTypes type;
 
     private String vehicleClass;
 
@@ -32,11 +33,11 @@ public class Car {
         this.id = id;
     }
 
-    public String getType() {
+    public CarTypes getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(CarTypes type) {
         this.type = type;
     }
 

@@ -31,7 +31,11 @@ public class CarController {
 
         return factoryRepository.findById(factoryId)
                 .map(factory -> {
-                    addCarRequest.setFactory(factory);
+                    if (!factory.getAcceptedType().equals(addCarRequest.getType())) {
+                        throw new ResourceNotFoundException("CarType not accepted for this Factory");
+                    } else {
+                        addCarRequest.setFactory(factory);
+                    }
                     return carRepository.save(addCarRequest);
                 }).orElseThrow(() -> new ResourceNotFoundException("Factory not found with id " + factoryId));
     }
