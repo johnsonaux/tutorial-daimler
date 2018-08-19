@@ -11,7 +11,7 @@ public class Factory {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
 
     private String acceptedType;
@@ -20,13 +20,11 @@ public class Factory {
     private String location;
 
 
-
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

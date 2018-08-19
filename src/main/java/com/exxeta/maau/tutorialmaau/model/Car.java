@@ -10,7 +10,7 @@ public class Car {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String type;
 
@@ -18,16 +18,17 @@ public class Car {
 
     private String vehicleModel;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    //second version add @ManyToOne(fetch = FetchType.LAZY) and @JsonIgnore
+    @ManyToOne
     @JoinColumn(name= "factory_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Factory factory;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

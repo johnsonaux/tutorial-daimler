@@ -10,7 +10,7 @@ public interface CarService {
 
     List<Car> getAllCars();
 
-    void addCar (Car car);
+    Car addCar (Car car, Long factoryId);
 
     void deleteCar (Long carId);
 
